@@ -1,0 +1,10 @@
+#success_message{ display: none;}
+
+html, body {
+	height: 100%;
+}
+
+.container, .well{
+	height: 100%;
+	margin-bottom: 0;
+}

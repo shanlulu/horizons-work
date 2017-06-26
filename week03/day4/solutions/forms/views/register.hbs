@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <style>
+    body { background-color: #2ECC71; padding-top: 2em;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+  <!--   panel body -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+      <!--       start form -->
+            <form class="form-horizontal" action="/register" method="post">
+              {{#if errors}}
+                {{#each errors}}
+                  <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+              {{/if}}
+<!--               first name -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
+                </div>
+              </div>
+      <!--         middle initial -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Middle Initial</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="middleInitial" placeholder="Middle Initial">
+                </div>
+              </div>
+      <!--         last name -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="lastName" placeholder="Last Name" required>
+                </div>
+              </div>
+      <!--         dob -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">DOB</label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" name="dob" required>
+                </div>
+              </div>
+      <!--         pw -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+              </div>
+      <!--         repeat pw -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Repeat Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" placeholder="Repeat Password" name="passwordRepeat" required>
+                </div>
+              </div>
+
+      <!--         gender -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Gender</label>
+                <div class="col-sm-9">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender" value="male">Male
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender" value="female">Female
+                    </label>
+                    </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender" value="na">Prefer not to say
+                    </label>
+                  </div>
+                </div>
+              </div>
+      <!--         newsletter -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Sign Up for newsletter</label>
+                <div class="col-sm-9">
+                  <input type="checkbox" name="newsletter" value="">
+                </div>
+              </div>
+      <!--         bio -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Biography</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" name="bio" placeholder="Biography"></textarea>
+                </div>
+              </div>
+
+    <!--               submit -->
+              <div class="text-right">
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+
+            </form>
+  <!--           form end -->
+          </div>
+        </div>
+  <!--       panel end -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

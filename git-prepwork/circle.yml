@@ -1,0 +1,7 @@
+test:
+  override:
+    - ./test.sh
+
+notify:
+  webhooks:
+    - url: https://ci-build-webhook.herokuapp.com/post

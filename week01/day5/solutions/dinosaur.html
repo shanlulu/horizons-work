@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Horizons - W01D5 - Dinosaur</title>
+
+  <!-- Jasmine -->
+  <link rel="shortcut icon" type="image/png" href="../../lib/jasmine/jasmine_favicon.png">
+  <link rel="stylesheet" href="../../lib/jasmine/jasmine.css">
+  <script src="../../lib/jasmine/jasmine.js"></script>
+  <script src="../../lib/jasmine/jasmine-html.js"></script>
+  <script src="../../lib/jasmine/boot.js"></script>
+
+  <!-- Jquery -->
+  <script src="../../lib/jquery.js"></script>
+
+  <!-- Underscore -->
+  <script src="../../lib/underscore.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+
+  <!-- Our files -->
+  <script src="dinosaur_game.js"></script>
+  <script src="dinosaur.js"></script>
+  <!-- <script src="../dinosaur_game_tests.js"></script> -->
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2><code>"Dinosaur" in JavaScript</code></h2>
+        <p>Please open `dinosaur.js` and `dinosaur_game.js`.</p>
+        <canvas id="dinosaur-panel"></canvas>
+      </div>
+      <div class="col-xs-6" id="jasmine-panel">
+      </div>
+    </div>
+  </div>
+  <script>
+  function injectJasmine(targetId) {
+			$("#" + targetId).append($(".jasmine_html-reporter"));
+	}
+	setTimeout(function() { injectJasmine("jasmine-panel") }, 50);
+  new game.Game();
+  </script>
+</body>
+</html>

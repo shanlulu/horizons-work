@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Horizons AJAX Async Example</title>
+  </head>
+
+  <body>
+
+    <h1>AJAX Async Example</h1>
+
+    <p>Use <a href="http://api.jquery.com/jquery.ajax/">$.ajax()</a> to fetch <a href="https://horizons-json-cors.s3.amazonaws.com/products.json">these products</a> in JavaScript on this page. Display their names and prices below as a bulleted list.</p>
+    <p>
+      The link above will respond with an array of urls. You need to asynchronously make AJAX requests to these links, and then sort the results in increasing price order (lowest price up top).
+    </p>
+
+    <div id="products">REPLACE me with the sorted list of products! My <code>id is "products"</code>.</div>
+
+    <h2>Example output</h2>
+    <ul>
+      <li>Raspberry Pi, $33.53</li>
+      <li>Amazon Echo, $179.99</li>
+      <li>DJI Phantom 3, $416.59</li>
+    </ul>
+
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script>
+      // YOUR CODE HERE
+      var list = [];
+      var counter = 0;
+      $.ajax({
+        url: 'https://horizons-json-cors.s3.amazonaws.com/products.json',
+        success: function(resp) {
+          _.forEach(resp, function(link) {
+            $.ajax({
+              url: link.url,
+              success: function(product) {
+                list.push([product.name, product.priceCents]);
+                counter++;
+                if (counter === resp.length) {
+                  list.sort(function(a, b) {
+                    return a[1]-b[1];
+                  })
+
+                  $('#products').text('');
+                  $('#products').append('<ul>');
+                  _.forEach(list, function(thing) {
+                    $('#products').append($('<li>' + thing[0] + ', $' + Math.floor(thing[1]/100) + '.' + thing[1]%100 + '</li>'));
+                  })
+                  $('#products').append('</ul>');
+                }
+              }
+            })
+          })
+        }
+      })
+
+    </script>
+  </body>
+</html>

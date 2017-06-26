@@ -1,0 +1,8 @@
+node_modules/
+out/
+npm-debug.log
+.tmp
+.DS_Store
+/*.html
+.idea/
+*.swp

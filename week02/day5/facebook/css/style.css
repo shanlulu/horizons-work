@@ -1,0 +1,28 @@
+
+
+.card-block {
+  padding: 10px;
+  border-top: 3px solid black;
+}
+
+.card-title {
+  font-size: 2em;
+}
+
+.card-reply, .card-like {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 1em;
+  font-size: 1em;
+  display: inline-block;
+}
+
+.counters {
+  text-align: right;
+}
+
+.card-subReply {
+  border: 1px dashed black;
+  padding-left: 5px;
+  margin: 15px;
+}

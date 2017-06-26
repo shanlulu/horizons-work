@@ -1,0 +1,23 @@
+<h1>Posts</h1>
+
+<!-- Iterate over al the posts using {{#each posts}} {{title}} {{/each}} to
+display them on the page. Add a couple of buttons to sort ascending/descending
+and to create new post! -->
+
+
+<!-- YOUR CODE HERE -->
+{{#each posts}}
+<article>
+  <h2>{{title}}</h2>
+  <p>{{text}}</p>
+  <strong>{{author}}</strong>
+  {{date}}
+</article>
+<hr />
+{{/each}}
+
+<p><a href="/posts/new">New Post</a></p>
+<p>
+  <a href="/posts?order=ascending">View all Ascending</a>
+  <a href="/posts?order=descending">View all Descending</a>
+</p>

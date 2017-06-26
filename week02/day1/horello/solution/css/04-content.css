@@ -1,0 +1,10 @@
+.background-dark-blue {
+    color: #fff;
+    background-color: #0079bf;
+}
+
+.layout-fill-img {
+    padding: 40px 60px;
+    max-width: 100%;
+    box-sizing: border-box;
+}

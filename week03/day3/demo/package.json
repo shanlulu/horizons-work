@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.5.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

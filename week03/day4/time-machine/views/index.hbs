@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time machine</title>
+  </head>
+  <body>
+    <form>
+      From
+
+      <!-- Make this element change based on the 'when' query parameter -->
+      <input type="date" name="when">
+
+      to
+
+      <!-- Make this element change based on the 'amount' query parameter -->
+      <input type="number" min="0" name="amount">
+
+      <!-- Make this element change based on the 'units' query parameter -->
+      <select name="units">
+        <option>days</option>
+        <option>months</option>
+        <option>years</option>
+      </select>
+
+      <input type="submit" name="action" value="to the future!">
+      <input type="submit" name="action" value="to the past">
+    </form>
+  </body>
+</html>

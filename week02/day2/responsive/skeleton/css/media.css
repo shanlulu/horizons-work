@@ -1,0 +1,17 @@
+/* Your CSS goes here! */
+
+section {
+  padding: 0 20px;
+}
+
+@media (min-width: 650px) {
+  section {
+    padding: 40px 20px;
+  }
+}
+
+@media (min-width: 650px) {
+  section {
+    padding: 80px 20px;
+  }
+}

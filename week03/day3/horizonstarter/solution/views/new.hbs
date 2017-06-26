@@ -1,0 +1,41 @@
+<h1>Horizon Starter</h1>
+<h2>Create project</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Project Title</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="Project title" value="{{data.title}}">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" rows="5">{{data.description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category" class="form-control">
+        {{#each categories}}
+          {{#if selected}}
+              <option selected>{{val}}</option>
+          {{else}}
+              <option>{{val}}</option>
+          {{/if}}
+        {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="amount">Fundraising goal</label>
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" value="{{data.amount}}">
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="start">Start date</label>
+        <input type="date" class="form-control" id="start" name="start" value="{{data.start}}">
+    </div>
+    <div class="form-group">
+        <label for="end">End date</label>
+        <input type="date" class="form-control" id="end" name="end" value="{{data.end}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

@@ -1,0 +1,9 @@
+{
+	"apps":[{
+		"script":	"bin/www",
+		"env": {
+			"PORT": "8090"
+		},
+		"name": "horizonstarter"
+		}]
+}

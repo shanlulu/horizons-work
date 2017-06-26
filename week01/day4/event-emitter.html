@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Week 1 Day 4 | Messenger</title>
+
+  <link rel="shortcut icon" type="image/png" href="../lib/jasmine/jasmine_favicon.png">
+  <link rel="stylesheet" href="../lib/jasmine/jasmine.css">
+
+  <script src="../lib/jasmine/jasmine.js"></script>
+  <script src="../lib/jasmine/jasmine-html.js"></script>
+  <script src="../lib/jasmine/boot.js"></script>
+
+  <!-- Our files -->
+  <script src="../lib/underscore.js"></script>
+  <script src="./event-emitter.js"></script>
+  <script src="./event-emitter-observer.js"></script>
+  <script src="./event-emitter-tests.js"></script>
+
+</head>
+
+<style>
+  body {
+    font-family: Verdana, sans-serif;
+  }
+  .screen {
+    width: 350px;
+    text-align: right;
+    display: inline-block;
+  }
+  .screen-border {border: solid 1px black; padding: 15px 15px;}
+  .borderr{width: 80%; border: solid 1px black;}
+</style>
+
+<body>
+  <h2>EventEmitter Exercise: Messenger</h2>
+  <div style="display: block; text-align: center">
+    <div>
+    <div class="screen">
+      iPhone
+    </div>
+    <div class="phone screen screen-border">
+      <div style="width: 100%; text-align: right">
+        <label id="iphone"></label>
+      </div>
+      <br />
+      <div style="width: 100%; text-align: left">
+        <input id="iphone-input" type="text" class="borderr">
+        <button onclick="{submitMsg('iphone');}"type="button" name="button" style="width: 15%">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <div>
+    <div class="screen">
+      iPad
+    </div>
+    <div class="ipad screen screen-border">
+      <div style="width: 100%; text-align: right">
+        <label id="ipad"></label>
+      </div>
+      <br />
+      <div style="width: 100%; text-align: left">
+        <input id="ipad-input" type="text" class="borderr">
+        <button onclick="{submitMsg('ipad');}"type="button" name="button" style="width: 15%">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <div>
+    <div class="screen">
+      Mac
+    </div>
+    <div class="laptop screen screen-border">
+      <div style="width: 100%; text-align: right">
+        <label id="mac"></label>
+      </div>
+      <br />
+      <div style="width: 100%; text-align: left">
+        <input id="mac-input" type="text" class="borderr">
+        <button onclick="{submitMsg('mac');}"type="button" name="button" style="width: 15%">Send</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <h3><a id="tests">Tests</a></h3>
+</body>
+</html>

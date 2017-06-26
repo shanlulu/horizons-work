@@ -1,0 +1,51 @@
+.background-light-blue {
+    background-color: #e4f0f6;
+    overflow: hidden;
+}
+
+.layout-grid-frame {
+    position: relative;
+    max-width: 890px;
+    margin: 0 auto;
+}
+
+.layout-callout-right {
+    position: absolute;
+    top: -60px;
+    left: 640px;
+}
+
+.layout-callout-right img {
+    max-width: initial;
+}
+
+.layout-twothirds-left {
+    max-width: 585px;
+}
+
+.app-store-link {
+    display: inline-block;
+    vertical-align: top;
+    margin: .4em 1em 0 0;
+    padding: 0;
+}
+
+.app-store-link img {
+    height: 54px;
+}
+
+.outline-link {
+    border: 1px solid;
+    border-radius: 0.3em;
+    padding: .7em 1em;
+    margin: .4em 0 0;
+    display: inline-block;
+}
+
+a {
+    color: #5e98ba;
+}
+
+a:hover {
+    color: #265773;
+}

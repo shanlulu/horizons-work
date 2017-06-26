@@ -1,0 +1,8 @@
+#!/bin/bash
+
+branch=`git symbolic-ref HEAD`
+
+if [ ! -r ~/.horizons_instructor ] && [ "$branch" = "refs/heads/master" ]; then
+    echo "You cannot commit to 'master' in this repository."
+    exit 1
+fi

@@ -1,0 +1,43 @@
+.device-image {
+  float: right;
+  position: relative;
+  bottom: 60px;
+  height: 225px;
+}
+
+.device {
+  clear: both;
+  background-color: #e4f0f6;
+}
+
+.last-center {
+  text-align: center;
+  font-size: medium;
+  max-width: 585px;
+  margin-left: 10%
+}
+
+section.device [href="#"] {
+  display: inline-block;
+  height: 54px;
+  margin-top: 0.4em;
+  margin-right: 1em;
+}
+
+.link {
+  color: #5e98ba;
+  display: inline-block;
+  margin-top: 0.4em;
+  margin-right: 1em;
+  border: 1px solid #5e98ba;;
+  border-radius: 0.3em;
+  padding: 0.6em 1.3em;
+}
+
+.link:hover {
+  color: #265773;
+}
+
+* {
+  box-sizing: border-box;
+}

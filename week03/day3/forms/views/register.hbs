@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  
+  <style>
+    body { background-color: #2ECC71; padding-top: 2em;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+  <!--   panel body -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+      <!--       start form -->
+            <form class="form-horizontal" action="/register" method="post">
+              {{#if errors}}
+                {{#each errors}}
+                  <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+              {{/if}}
+<!--               first name -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{firstName}}</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
+                </div>
+              </div>
+      <!--         middle initial -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Middle Initial</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="middleInitial" placeholder="Middle Initial">
+                </div>
+              </div>
+      <!--         last name -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="lastName" placeholder="Last Name" required>
+                </div>
+              </div>
+      <!--         dob month -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">DOB Month</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name="dobMonth" required>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                </div>
+              </div>
+      <!--         dob day -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">DOB Day</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name="dobDay" required>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+              </div>
+      <!--         dob year -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">DOB Year</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name="dobYear" required>
+                    <option>2016</option>
+                    <option>2015</option>
+                    <option>2014</option>
+                    <option>2013</option>
+                    <option>2012</option>
+                    <option>2011</option>
+                    <option>2010</option>
+                    <option>2009</option>
+                    <option>2008</option>
+                    <option>2007</option>
+                    <option>2006</option>
+                    <option>2005</option>
+                    <option>2004</option>
+                    <option>2003</option>
+                    <option>2002</option>
+                    <option>2001</option>
+                    <option>2000</option>
+                    <option>1999</option>
+                    <option>1998</option>
+                    <option>1997</option>
+                    <option>1996</option>
+                    <option>1995</option>
+                  </select>
+                </div>
+              </div>
+      <!--         pw -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+              </div>
+      <!--         repeat pw -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Repeat Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" placeholder="Repeat Password" name="passwordRepeat" required>
+                </div>
+              </div>
+
+      <!--         gender -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Gender</label>
+                <div class="col-sm-9">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender">Male
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender">Female
+                    </label>
+                    </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="gender">Prefer not to say
+                    </label>
+                  </div>
+                </div>
+              </div>
+      <!--         newsletter -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Sign Up for newsletter</label>
+                <div class="col-sm-9">
+                  <input type="checkbox" name="newsletter" value="">
+                </div>
+              </div>
+      <!--         bio -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Biography</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" name="bio" placeholder="Biography"></textarea>
+                </div>
+              </div>
+
+  <!--             register date -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                  <input type="hidden" class="form-control" placeholder="Repeat Password">
+                </div>
+              </div>
+              
+    <!--               submit -->
+              <div class="text-right">
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+
+            </form>
+  <!--           form end -->
+          </div>
+        </div>
+  <!--       panel end -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

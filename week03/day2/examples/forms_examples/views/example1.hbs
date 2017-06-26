@@ -1,0 +1,12 @@
+<form>
+  {{#if text}}
+    <h1>{{text}}</h1>
+  {{else}}
+    <h1>Default Header</h1>
+  {{/if}}
+
+  <br /><br />
+
+  <input type="text" value="{{text}}" name="text" placeholder="New Header..." />
+  <input type="submit" value="Change Header"/>
+</form>

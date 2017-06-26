@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter 2.0</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="logo" href="#"> <img class="logo" src="img/logo.png"> </a>
+        <a class="brand" href="#">Twitter 2.0</a>
+        <ul class="nav right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Me</a></li>
+        </ul>
+        <div class="nav-collapse collapse">
+          <form class='navbar-search'>
+            <input class="search-query" placeholder="Search">
+          </form>
+        </div>
+      </div>
+    </div>  
+    <div class="container"> 
+      <div class="row compose-row">
+        <div class="content-container">
+          <textarea class="input-tweet" placeholder="Enter Tweet..."></textarea>  
+          <div class="submit-container stat-container">
+            <a class="stat"> <strong class="num">0</strong> TWEETS </a>
+            <a class="stat"> <strong class="num">91</strong> FOLLOWING </a>
+            <a class="stat"> <strong class="num">10,230</strong> FOLLOWERS </a>
+            <p class="char-limit">140</p>
+            <button class="submit">submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="posts"></div>
+    </div>
+
+    <!-- Template for Twitter Posts -->
+    <script type="text/template" class="post">
+      <div class="row">
+        <div class="content-container post-container">
+          <a href="#" class="profile">
+            <img class="avatar" src="img/profile.png">
+            <div class="name-header-container">
+              <div class="name-header"> 
+                <strong> Darwish Gani </strong> 
+                <span class="username"> @dargandhi123 </span>
+                <span class="date"> 20 Jun </span>
+              </div>
+            </div>
+          </a>
+          <p class="post-text"> <%- temp.text %> </p>
+          <ul class="action-list">  
+            <li><a href="#" class='action expand'> Expand </a></li>
+            <li><a href="#" class='action focus'> Reply </a></li>
+            <li><a href="#" class='action focus'> Retweet </a></li>
+            <li><a href="#" class='action focus'> Favorite </a></li>
+          </ul>
+          <div class="stat-container post-statistics"> 
+            <a class="stat"> <strong class="num">23</strong> RETWEETS </a>
+            <a class="stat"> <strong class="num">11</strong> FAVORITES </a>
+            <a class="stat pic" href="#"> <img class="post-pic" src="img/d1.png"> </a>
+            <a class="stat pic" href="#"> <img class="post-pic" src="img/d2.png"> </a>
+            <a class="stat pic" href="#"> <img class="post-pic" src="img/d3.png"> </a>
+            <a class="stat pic" href="#"> <img class="post-pic" src="img/d4.png"> </a>
+            <a class="stat pic" href="#"> <img class="post-pic" src="img/d5.png"> </a>
+          </div> 
+        </div> 
+      </div>
+    </script>
+
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+      $(function(){
+
+        // Focus on compose tweet field
+        $('.input-tweet').focus(function(){
+          openComposeTweet();
+        }); 
+
+        // Leave focus on compose tweet field
+        $('.input-tweet').focusout(function(){
+          if($('.input-tweet ').val().length == 0){
+            closeComposeTweet();
+          }
+        }); 
+
+        // Tweet text is edited
+        $('textarea.input-tweet').on("input", function(){
+          updateCharLimit();
+          updateSubmitButtonStatus();
+        });
+
+        // Submit Pressed 
+        $('.submit').click(function(){
+            var text = $('.input-tweet').val();
+            $('.input-tweet').val("");
+            closeComposeTweet();
+            insertPost(text);
+            updateCharLimit();
+        });
+
+        // Mouse enter or leaves a post container
+        $('.container').on('mouseenter mouseleave', '.post-container', function(ev){
+            _($(ev.target).find('.focus')).each(function(action){
+              $(action).toggle(ev.type === 'mouseenter');
+            });
+        })
+
+        // Expand Pressed
+        $('.container').on("click", ".expand", function(ev){
+          $postContainer = currentStatContainer(ev.target);
+          
+          if($postContainer.css('display') === "none"){
+            $postContainer.css('display', 'block')
+            $(ev.target).text("Collapse");
+          }
+          else{
+            $postContainer.css('display', 'none')
+            $(ev.target).text("Expand");
+          }
+        });
+
+        var insertPost = function(text){
+            _.templateSettings.variable = "temp";
+
+            // Grab the HTML out of our template tag and pre-compile it.
+            var template = _.template(
+              $("script.post").html()
+            );
+            // Define our render data (to be put into the "rc" variable).
+            var templateData = {
+              text: text
+            }
+            $('.posts').prepend(
+                template(templateData)
+            );          
+        }
+
+        var updateCharLimit = function(){
+          var length = 140 - $('.input-tweet ').val().length;
+          $('.char-limit').text(length);
+          updateCharLimitColor();
+        }
+
+        var openComposeTweet = function(){
+          $('.submit-container').css('display', 'block');
+          $('.input-tweet').css('height', '50px');
+        }
+
+        var closeComposeTweet = function(){
+          $('.submit-container').css('display', 'none');
+          $('.input-tweet').css('height', '20px');          
+        }
+
+        var updateSubmitButtonStatus = function(){
+          if($('.input-tweet').val().length > 140)
+            $('.submit').attr('disabled', 'disabled');
+          else
+            $('.submit').removeAttr('disabled');
+        }
+
+        var currentStatContainer = function(el){
+          return $($(el).parents('.post-container').children('.post-statistics')[0]);
+        };
+
+        var updateCharLimitColor = function(){
+          if($('.input-tweet').val().length < 140)
+            $('.char-limit').css('color', '#95A5A6');
+          else
+            $('.char-limit').css('color', '#C0392B');
+        };
+
+        insertPost("This is my Twitter 2.0 page. I hope that you enjoy the simplicity. Cheers, Darwish");
+
+      });
+    </script>
+
+  </body>
+</html>

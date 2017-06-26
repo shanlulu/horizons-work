@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+{{#each projects}}
+  <div class="well">
+    <h2>Title: {{title}}</h2>
+    <h3>Description: {{description}}</h3>
+      <a href="/project/{{id}}">View project</a>
+  </div>
+{{/each}}
+
+<a href="/new">Create a new project</a>
