@@ -24,5 +24,27 @@
 
 <!-- YOUR CODE HERE -->
 
+<form>
+  <label>Order: </label><br><br>
+  <input type="radio" name="order" value="ascending">Ascending<br>
+  <input type="radio" name="order" value="descending">Descending<br><br>
+  <input type="submit" name="button" value="Sort!">
+</form><br><br>
+
+  {{#each posts}}
+    <div class="post">
+      Post: <br>
+      <a href='?author={{author}}'>View only posts by this author</a><br>
+      <a href='/posts'>View all posts</a><br>
+      <ul>
+        <li>Author: {{author}}</li>
+        <li>Title: {{title}}</li>
+        <li>Body: {{body}}</li>
+        <li>Date: {{date}}</li>
+      </ul>
+    </div>
+  {{/each}}
+
+
 </body>
 </html>

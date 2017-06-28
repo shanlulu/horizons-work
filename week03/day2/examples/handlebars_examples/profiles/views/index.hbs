@@ -1,3 +1,22 @@
 <div>
-  <span>YOUR CODE HERE</span>
+  <span>
+    <ul>
+      {{#if male}}
+        {{#if female}}
+          {{#each students}}
+            <li>First Name: {{first_name}}, Last Name: {{last_name}}, Email: {{email}}, Gender: {{gender}}</li>
+          {{/each}}
+        {{else}}
+          {{#each maleStudents}}
+            <li>First Name: {{first_name}}, Last Name: {{last_name}}, Email: {{email}}, Gender: {{gender}}</li>
+          {{/each}}
+        {{/if}}
+      {{else}}
+        {{#each femaleStudents}}
+            <li>First Name: {{first_name}}, Last Name: {{last_name}}, Email: {{email}}, Gender: {{gender}}</li>
+        {{/each}}
+      {{/if}}
+
+    </ul>
+  </span>
 </div>

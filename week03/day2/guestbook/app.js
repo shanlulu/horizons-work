@@ -44,7 +44,7 @@ app.get('/', function(req, res) {
 //
 // For example if you wanted to render 'views/index.hbs' you'd do res.render('index')
 app.get('/login', function(req, res) {
-  // YOUR CODE HERE
+  res.render('login');
 });
 
 // POST /login: Receives the form info from /login, sets a cookie on the client
@@ -64,10 +64,33 @@ app.post('/login', function(req, res) {
 // Hint: to get the username, use req.cookies.username
 // Hint: use data.read() to read the post data from data.json
 app.get('/posts', function (req, res) {
+  var order = req.query.order;
+  var arr = data.read();
+  if (order === 'ascending' || order === 'descending') {
+    arr.sort(function(a, b) {
+      var dateArrForA = a.date.split('/');
+      var dateArrForB = b.date.split('/');
+      if (dateArrForA[2]-dateArrForB[2] !== 0) return dateArrForA[2]-dateArrForB[2];
+      else if (dateArrForA[0]-dateArrForB[0] !== 0) return dateArrForA[0]-dateArrForB[0];
+      else return dateArrForA[1]-dateArrForB[1];
+    })
+  }
+  if (order === 'descending') {
+    arr.reverse();
+  }
+
+  if (req.query.author) {
+    arr = arr.filter(function(post) {
+      return post.author === req.query.author;
+    });
+  }
+
   res.render('posts', {
     // Pass `username` to the template from req.cookies.username
     // Pass `posts` to the template from data.read()
     // YOUR CODE HERE
+    username: req.cookies.username,
+    posts: arr
   });
 });
 
@@ -82,6 +105,13 @@ app.get('/posts', function (req, res) {
 // Hint: check req.cookies.username to see if user is logged in
 app.get('/posts/new', function(req, res) {
   // YOUR CODE HERE
+  var error = '';
+  if (!req.cookies.username) {
+    error = "You need to login first!";
+  }
+  res.render('post_form', {
+    error: error
+  });
 });
 
 // POST /posts:
@@ -102,6 +132,29 @@ app.get('/posts/new', function(req, res) {
 // write it back wih data.save(array).
 app.post('/posts', function(req, res) {
   // YOUR CODE HERE
+
+  if (!req.cookies.username) {
+    var error = "You need to login first!";
+    res.status(401).send(error);
+  } else if (req.body.title === '' || req.body.body === '' || req.body.date === ''){
+    res.status(400).send("Invalid input!");
+  } else {
+    //var postAuthor = req.cookies.username;
+    var postTitle = req.body.title;
+    var postBody = req.body.body;
+    var postDate = req.body.date;
+
+    var arr = data.read()
+    arr.push({author: req.cookies.username, date: postDate, title: postTitle, body: postBody});
+    data.save(arr);
+    console.log(req.cookies.username);
+
+    res.render('posts', {
+      username: req.cookies.username,
+      posts: data.read()
+    });
+  }
+
 });
 
 // Start the express server
