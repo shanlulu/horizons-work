@@ -1,0 +1,18 @@
+<br><br>
+<div class="container">
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		    <img class="media-object" src="{{product.imageUri}}" style="max-width:300px;">
+  		  </a>
+  		  <div class="media-body" style="padding: 1em">
+    		    <h4 class="media-heading">{{product.title}}</h4>
+            <p class="text-right">${{product.price}}</p>
+            <p>{{product.description}}</p>
+            <form action="/cart/add/{{product._id}}" method="post" class="text-right">
+              <input type="submit" value="Add to cart" class="btn btn-primary">
+            </form>
+       </div>
+     </div>
+  </div>
+</div>

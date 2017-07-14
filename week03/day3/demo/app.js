@@ -9,6 +9,25 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
+
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI);
+
+var Student = mongoose.model('Student', {
+  name: String
+});
+
+new Student({
+  name: 'Shan'
+}).save(function(err, student) {
+  if (err) {
+    console.log('ERROR' + err);
+  } else {
+    console.log('SAVED' + student);
+  }
+});
+
+
 app.get('/', function(req, res) {
   res.render('index.hbs');
 });

@@ -1,0 +1,44 @@
+<h4>Name:</h4>
+<p>{{restaurant.name}}</p>
+
+<h4>Price:</h4>
+<p>{{restaurant.price}}</p>
+
+<h4>Category:</h4>
+<p>{{restaurant.category}}</p>
+
+<h4>Stars:</h4>
+<p>{{restaurant.stars}}</p>
+
+<h4>Open Time:</h4>
+<p>{{restaurant.openHoursEST.openTime}}</p>
+
+<h4>Closing Time:</h4>
+<p>{{restaurant.openHoursEST.closingTime}}</p>
+
+<br />
+<h2>Reviews</h2>
+
+{{#each reviews}}
+<p>{{user.displayName}}</p>
+<p>{{stars}}</p>
+<p>{{content}}</p>
+<hr />
+{{/each}}
+
+
+
+<form method="POST">
+<h3>Leave Review</h3>
+  <div class="form-group">
+    <label>Content</label>
+    <input type="text" name="content" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Stars</label>
+    <input type="number" name="stars" class="form-control">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success">Send</button>
+  </div>
+</form>

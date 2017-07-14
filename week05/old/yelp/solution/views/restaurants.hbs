@@ -1,0 +1,47 @@
+<h3>Restaurants</h3>
+
+<form method="get">
+  <fieldset>
+    <p>
+      <label>Sort by: </label>
+     <select id="sort" name="sort">
+        <option value = "distance">Distance</option>
+        <option value = "price">Price</option>
+        <option value = "rating">Rating</option>
+        <option value = "alphabetical">Alphabetical</option>
+        <option value = "reviews">Number of reviews</option>
+      </select>
+      <select id="order" name="order">
+         <option value = "asc">Ascending</option>
+         <option value = "dsc">Descending</option>
+       </select>
+    </p>
+     <input type="submit" value="Order" />
+  </fieldset>
+</form>
+
+<table class="table table-hover">
+  <thead>
+    <td><b>Name</b></td>
+    <td><b>price</b></td>
+    <td><b>Category</b></td>
+    <td><b>openTime</b></td>
+    <td><b>closingTime</b></td>
+    <td><b>Links</b></td>
+  </thead>
+  <tbody>
+    {{#each restaurants}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{price}}</td>
+      <td>{{category}}</td>
+      <td>{{openHoursEST.openTime}}</td>
+      <td>{{openHoursEST.closingTime}}</td>
+      <td>
+        <a href="/restaurants/{{id}}">Restaurant Page</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<a href="/restaurants/new">New Restaurant</a>

@@ -16,7 +16,7 @@ app.use(expressValidator());
 
 // Enable POST request body parsing
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve static files
@@ -45,13 +45,36 @@ app.get('/register', function(req, res){
 //    profile should not be editable.
 app.post('/register', function(req, res){
   // YOUR CODE HERE - Add express-validator validation rules here
-  var errors; // YOUR CODE HERE - Get errors from express-validator here
+
+  req.check('firstName', 'First name must not be empty.').notEmpty();
+  req.check('middleInitial', 'Middle Initial can only include a single letter.').isLength({
+    max: 1
+  });
+  req.check('lastName', 'Last name must not be empty.').notEmpty();
+  req.check('DOB', 'DOB must be a date in the past.').isBefore();
+  req.check('password', 'Password must not be empty.').notEmpty();
+  req.check('repeatPassword', 'Repeat password does not match.').equals(req.body.password);
+  req.check('repeatPassword', 'Repeat password must not be empty.').notEmpty();
+
+  var errors = req.validationErrors(); // YOUR CODE HERE - Get errors from express-validator here
   if (errors) {
-    res.render('register', {errors: errors});
+    res.status(400).render('register', {errors: errors});
   } else {
     // Include the data of the profile to be rendered with this template
     // YOUR CODE HERE
-    res.render('profile');
+    var signUp;
+    if (req.body.signUp === 'on') signUp = 'Yes!';
+    else signUp = 'No.';
+    res.render('profile', {
+      firstName: req.body.firstName,
+      middleInitial: req.body.middleInitial,
+      lastName: req.body.lastName,
+      DOB: req.body.DOB,
+      password: req.body.password,
+      gender: req.body.gender,
+      bio: req.body.bio,
+      signUp: signUp
+    });
   }
 });
 

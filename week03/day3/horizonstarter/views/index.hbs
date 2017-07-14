@@ -3,5 +3,45 @@
 <!-- Part 1: View all projects -->
 <!-- YOUR CODE HERE -->
 
+<ul>
+  {{#each items}}
+    <li><a href="/project/{{this._id}}">{{this.title}}</a></li>
+  {{/each}}
+</ul>
+
+
 <!-- Part 2: Create new project -->
 <!-- YOUR CODE HERE -->
+
+<a href="/new">Create new project</a><br><br>
+
+
+<!-- <form>
+  <input type="submit" name="sort" class="btn btn-success" value="goal">
+  <input type="submit" name="sort" class="btn btn-success" value="start">
+  <input type="submit" name="sort" class="btn btn-success" value="end"><br>
+  <input type="submit" name="sortDirection" value="ascending">
+</form> -->
+
+
+
+<a href="/?sort=goal&sortDirection=ascending&fund=fully">Sort by Goal -- Ascending -- Fully Fund</a><br>
+<a href="/?sort=goal&sortDirection=descending&fund=fully">Sort by Goal -- Descending -- Fully Fund</a><br><br>
+<a href="/?sort=start&sortDirection=ascending&fund=fully">Sort by Start Date -- Ascending -- Fully Fund</a><br>
+<a href="/?sort=start&sortDirection=descending&fund=fully">Sort by Start Date -- Descending -- Fully Fund</a><br><br>
+<a href="/?sort=end&sortDirection=ascending&fund=fully">Sort by End Date -- Ascending -- Fully Fund</a><br>
+<a href="/?sort=end&sortDirection=descending&fund=fully">Sort by End Date -- Descending -- Fully Fund</a><br><br>
+<a href="/?sort=contribution&sortDirection=ascending&fund=fully">Sort by Contribution -- Ascending -- Fully Fund</a><br>
+<a href="/?sort=contribution&sortDirection=descending&fund=fully">Sort by Contribution -- Descending -- Fully Fund</a><br><br>
+
+<a href="/?sort=goal&sortDirection=ascending&fund=no">Sort by Goal -- Ascending -- No Enough Fund</a><br>
+<a href="/?sort=goal&sortDirection=descending&fund=no">Sort by Goal -- Descending -- No Enough Fund</a><br><br>
+<a href="/?sort=start&sortDirection=ascending&fund=no">Sort by Start Date -- Ascending -- No Enough Fund</a><br>
+<a href="/?sort=start&sortDirection=descending&fund=no">Sort by Start Date -- Descending -- No Enough Fund</a><br><br>
+<a href="/?sort=end&sortDirection=ascending&fund=no">Sort by End Date -- Ascending -- No Enough Fund</a><br>
+<a href="/?sort=end&sortDirection=descending&fund=no">Sort by End Date -- Descending -- No Enough Fund</a><br><br>
+<a href="/?sort=contribution&sortDirection=ascending&fund=no">Sort by Contribution -- Ascending -- No Enough Fund</a><br>
+<a href="/?sort=contribution&sortDirection=descending&fund=no">Sort by Contribution -- Descending -- No Enough Fund</a><br><br>
+
+
+<a href="/">BACK</a>

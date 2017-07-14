@@ -1,0 +1,57 @@
+
+	<div class="container">
+		<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #e3f2fd; margin-bottom: 30px">
+  		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<a class="navbar-brand" href="#">All Products</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav mr-auto navbar-right" style="margin:0">
+      <li class="nav-item">
+        <a class="nav-link" href="/cart">Cart ({{items.length}})</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+
+  	<!-- BEGIN PRODUCTS -->
+		{{#each products}}
+			<div class="col-md-3 col-xs-6 thumbnail">
+				<span>
+						<img src="{{this.imageUri}}" alt="..." style="max-height:100%; max-width:100%;">
+						<h4>{{this.title}}</h4>
+						<div class="ratings">
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star-empty"></span>
+								</div>
+						<p>{{this.description}}</p>
+						<hr class="line">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<p class="price">${{this.price}}</p>
+							</div>
+							<div class="col-md-6 col-sm-6">
+							 <a href="/product/{{this._id}}" target="_blank" >	<button class="btn btn-info right" > More Details</button></a>
+						 </div>
+						</div>
+				</span>
+			</div>
+		{{/each}}
+	<!-- END PRODUCTS -->
+</div>
+</div><!-------container----->
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

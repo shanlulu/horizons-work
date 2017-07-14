@@ -111,7 +111,7 @@ $('#loginButton').on('click', function() {
         })
       }
       refresh();
-      refreshId = setInterval(refresh, 10000);
+      refreshId = setInterval(refresh, 30000);
     },
     data: {
       email: $('#emailLogin').val(),

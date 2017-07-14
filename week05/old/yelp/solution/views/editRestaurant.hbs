@@ -1,0 +1,34 @@
+<h3>restaurant</h3>
+<form method="POST">
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" value="{{restaurant.name}}" name="name" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" value="{{restaurant.price}}" name="price" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <input type="text" value="{{restaurant.category}}" name="category" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Open Time</label>
+    <input type="number" value="{{restaurant.openTime}}" name="openTime" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Closing Time</label>
+    <input type="number" value="{{restaurant.closingTime}}" name="closingTime" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success">Save restaurant</button>
+    <a class="btn btn-danger" href="/restaurants">Delete restaurant</a>
+    <a class="btn btn-default" href="/restaurants">Cancel</a>
+  </div>
+</form>

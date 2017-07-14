@@ -3,3 +3,31 @@
 <!-- Part 2: Create project -->
 <!-- Part 5: Project categories -->
 <!-- YOUR CODE HERE -->
+
+<form action="/new" method="post">
+  <label>Title: </label><br>
+  <input type="text" name="title" value="{{title}}"><br>
+  <label>Goal: </label><br>
+  <input type="text" name="goal" value="{{goal}}"><br>
+  <label>Description: </label><br>
+  <textarea name="description" rows="6" cols="30">{{description}}</textarea><br>
+  <label>Start Date: </label><br>
+  <input type="date" name="start" value="{{start}}"><br>
+  <label>End Date: </label><br>
+  <input type="date" name="end" value="{{end}}"><br><br>
+  <label>Category: </label><br>
+  <select name="category">
+    <option value="Famous Muppet Frogs">Famous Muppet Frogs</option>
+    <option value="Current Black Presidents">Current Black Presidents</option>
+    <option value="The Pen Is Mightier">The Pen Is Mightier</option>
+    <option value="Famous Mothers">Famous Mothers</option>
+    <option value="Drummers Named Ringo">Drummers Named Ringo</option>
+    <option value="1-Letter Words">1-Letter Words</option>
+    <option value="Months That Start With 'Feb'">Months That Start With "Feb"</option>
+    <option value="How Many Fingers Am I Holding Up">How Many Fingers Am I Holding Up</option>
+    <option value="Potent Potables">Potent Potables</option>
+  </select><br><br><br>
+  <input type="submit" name="btn" value="Submit">
+</form>
+
+<h1>{{error}}</h1>

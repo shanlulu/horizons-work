@@ -1,0 +1,12 @@
+<p>Welcome! Select a Room to join.</p>
+<button>Join Room 1</button>
+<button>Join Room 2</button>
+<button>Poke!</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on('connect', function() {
+    console.log('Connected!');
+  });
+</script>

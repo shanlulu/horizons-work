@@ -1,0 +1,117 @@
+<div class="container">
+<div class="row">
+	 <br>
+            <div class="col-xs-12" >
+                <div class="col-md-8 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                    <!--SHIPPING METHOD-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center"><h4 style="margin:20px">Current Cart</h4></div>
+                        <div class="panel-body">
+                           <table class="table borderless">
+    						<thead>
+                                <tr>
+        							<td><strong>Your Cart: {{items.length}} item</strong></td>
+        							<td></td>
+        							<td></td>
+        							<td></td>
+        							<td>
+                        <form action="/cart/delete" method="post">
+                          <input type="submit" class="btn btn-default" value="Clear Cart">
+                        </form>
+                      </td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+                  {{#each items}}
+                    <tr>
+                      <td class="col-md-3">
+                          <div class="media">
+                               <a class="thumbnail pull-left" href="#"> <img class="media-object" src="{{this.imageUri}}" style="width: 72px; height: 72px;"> </a>
+                               <div class="media-body">
+                                   <h5 class="media-heading">
+                                     <a href="/product/{{this._id}}">{{this.title}}</a>
+                                   </h5>
+                               </div>
+                          </div>
+                      </td>
+                      <td class="text-center">${{this.price}}</td>
+                      <td class="text-center">1</td>
+                      <td class="text-right">${{this.price}}</td>
+                      <td class="text-right">
+                        <form action="/cart/delete/{{this._id}}" method="post">
+                          <input type="submit" class="btn btn-danger" value="Remove">
+                        </form>
+                      </td>
+                    </tr>
+                  {{/each}}
+    							<!-- <tr>
+    								<td class="col-md-3">
+    								    <div class="media">
+    								         <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://lorempixel.com/460/250/" style="width: 72px; height: 72px;"> </a>
+    								         <div class="media-body">
+    								             <h5 class="media-heading"> Product Name</h5>
+    								             <h5 class="media-heading"> Product Code</h5>
+    								         </div>
+    								    </div>
+    								</td>
+    								<td class="text-center">$10.99</td>
+    								<td class="text-center">1</td>
+    								<td class="text-right">$32.99</td>
+    								<td class="text-right"><button type="button" class="btn btn-danger">Remove</button></td>
+    							</tr> -->
+
+    						</tbody>
+    					</table>
+                        </div>
+                      <div class="text-center">
+                        <h6 style="margin:20px">
+                          <a href="/">Add Another</a>
+                        </h6>
+                      </div>
+                    </div>
+                    <!--SHIPPING METHOD END-->
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                    <!-- REVIEW ORDER -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            <h4>Review Order</h4>
+                        </div>
+                        <div class="panel-body">
+                                <div class="col-md-12">
+                                    <strong>Subtotal (# item)</strong>
+                                    <div class="pull-right"><span>$</span><span>200.00</span></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <strong>Tax</strong>
+                                    <div class="pull-right"><span>$</span><span>200.00</span></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <small>Shipping</small>
+                                    <div class="pull-right"><span>-</span></div>
+                                    <hr>
+                                </div>
+                                <div class="col-md-12">
+                                    <strong>Order Total</strong>
+                                    <div class="pull-right"><span>$</span><span>150.00</span></div>
+                                    <hr>
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+
+                        </div>
+
+                    </div>
+                    <!--REVIEW ORDER END-->
+                </div>
+                </div>
+                </div>
+</div>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

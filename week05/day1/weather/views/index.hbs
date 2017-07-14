@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h1>Weather report</h1>
+
+    {{#if currently}}
+      <h2>Currently: {{currently.summary}} </h2>
+      <p>Temperature: {{currently.temperature}}</p>
+    {{/if}}
+
+    <form method="post" class="form-inline">
+      <div class="form-group">
+        <label for="email">Address:</label>
+        <input type="text" class="form-control" name="address">
+      </div>
+      <button type="submit" class="btn btn-primary">Get weather</button>
+    </form>
+  </div>
+</div>

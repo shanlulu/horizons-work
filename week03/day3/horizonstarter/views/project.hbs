@@ -1,9 +1,52 @@
-<h1>View Project</h1>
+<div style="width: 70%;margin: auto;padding: 15px">
 
-<!-- Part 3: View a single project -->
+  <!-- Part 3: View a single project -->
 
-<!-- YOUR CODE HERE -->
+  <!-- YOUR CODE HERE -->
+<div class="project-wrapper" style="justify-content: center">
+  <h3><i>Project: </i></h3>
+  <a href="/project/{{project._id}}/edit">Edit Project</a>
+  <ul>
+     <li>Title: {{project.title}}</li>
+     <li>Goal: {{project.goal}}</li>
+     <li>Description: {{project.description}}</li>
+     <li>Start Date: {{project.start}}</li>
+     <li>End Date: {{project.end}}</li>
+     <li>Category: {{project.category}}</li>
+  </ul><br>
+</div>
 
-<!-- Part 4: Contribute to a project -->
+  <!-- Part 4: Contribute to a project -->
 
-<!-- YOUR CODE HERE -->
+  <!-- YOUR CODE HERE -->
+
+  <p style="display: inline"><i>We've got: </i><p style="font-size: 40; color: red; display: inline">${{total}} </p><i> || GOAL: </i><p style="font-size: 40; color: red; display: inline">${{goal}}</p></p>
+
+  <div style="width: 100%">
+    <div class="progress">
+      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{percentage}}"
+      aria-valuemin="0" aria-valuemax="100" style="width:{{percentage}}%">
+        {{percentage}}% Complete
+      </div>
+    </div>
+  </div>
+
+  <h3>Contribution List: </h3>
+  <ul>
+      {{#each list}}
+        <li>{{this.name}} --> ${{this.amount}}</li>
+      {{/each}}
+  </ul>
+
+  <h1>Contribution Form: </h1>
+  <form method="post">
+    <label>Name: </label>
+    <input id="inputName" type="text" name="name"><br>
+    <label>Amount: </label>
+    <input id="inputAmount" type="text" name="amount"><br><br>
+    <button class="btn btn-success" name="btn" id="send-contribution">Add Contribution</button>
+  </form>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/js/contributions.js"></script>

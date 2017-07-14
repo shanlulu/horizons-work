@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{title}} Horizons Slapjack</title>
+  <link href="/bootstrap.united.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      padding-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="horizons-nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Slapjack</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        {{{body}}}
+      </div>
+    </div>
+  </div>
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+  <script src="/bootstrap3-typeahead.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
